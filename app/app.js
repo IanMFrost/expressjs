@@ -6,7 +6,7 @@ var dataFile = require('./data/data.json');
 app.set('port', process.env.PORT || 3000 );
 app.set('appData', dataFile);
 app.set('view engine', 'ejs');
-app.set('views', 'app/views');
+app.set('views','views');
 
 app.locals.siteTitle = 'Roux Meetups';
 app.locals.allSpeakers = dataFile.speakers;
@@ -16,6 +16,7 @@ app.use(require('./routes/index'));
 app.use(require('./routes/speakers'));
 app.use(require('./routes/feedback'));
 app.use(require('./routes/api'));
+app.use(require('./routes/FeedbackSendIgen'));
 
 var server = app.listen(app.get('port'), function() {
   console.log('Listening on port ' + app.get('port'));
